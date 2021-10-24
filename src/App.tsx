@@ -1,13 +1,28 @@
+import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
 import './styles.css';
-import IMG from './sample.png';
-import CIRCLE from './circle.svg';
 
 export const App = () => {
     return (
-        <>
-            <h1>init project - {process.env.NODE_ENV}</h1>
-            <img src={IMG} alt="test Img" width="500" height="500" />
-            <img src={CIRCLE} alt="test Circle" width="500" height="500" />
-        </>
+        <BrowserRouter>
+            <Switch>
+                <Route
+                    path="/"
+                    component={() => (
+                        <div>
+                            <Link to="/views/123">button</Link>
+                        </div>
+                    )}
+                    exact
+                />
+                <Route
+                    path="/views/:view_id"
+                    component={({ match }: any) => (
+                        <div>view id {match.params.view_id}</div>
+                    )}
+                    exact
+                />
+                <Redirect from="*" to="/" />
+            </Switch>
+        </BrowserRouter>
     );
 };
