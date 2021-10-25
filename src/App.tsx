@@ -1,19 +1,13 @@
-import { BrowserRouter, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './styles.css';
+
+import Main from './routes/Main';
 
 export const App = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route
-                    path="/"
-                    component={() => (
-                        <div>
-                            <Link to="/views/123">button</Link>
-                        </div>
-                    )}
-                    exact
-                />
+                <Route path="/" component={Main} exact />
                 <Route
                     path="/views/:view_id"
                     component={({ match }: any) => (
