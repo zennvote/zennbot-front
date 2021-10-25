@@ -1,5 +1,7 @@
+import './index.scss';
+
 const Header = () => {
-    return <div>Header</div>;
+    return <div className="header-wrapper">Header</div>;
 };
 
 export default Header;
