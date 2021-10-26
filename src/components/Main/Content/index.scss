@@ -1,0 +1,15 @@
+.main-content {
+    &-wrapper {
+        display: flex;
+        height: calc(100vh - 60px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-content {
+        &-wrapper {
+            flex-direction: column-reverse;
+            height: auto;
+        }
+    }
+}
