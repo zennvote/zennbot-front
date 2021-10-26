@@ -3,6 +3,14 @@
         display: flex;
         height: calc(100vh - 60px);
     }
+
+    &-left {
+        flex: 8;
+    }
+
+    &-right {
+        flex: 2;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -10,6 +18,14 @@
         &-wrapper {
             flex-direction: column-reverse;
             height: auto;
+        }
+
+        &-left {
+            flex: inherit;
+        }
+
+        &-right {
+            flex: inherit;
         }
     }
 }
