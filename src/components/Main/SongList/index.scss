@@ -1,0 +1,19 @@
+.main-song_list {
+    &-wrapper {
+        padding: 20px;
+    }
+
+    &-item {
+        padding: 8px;
+        background-color: #eee;
+        border-radius: 5px;
+
+        &-title {
+            margin: 0;
+        }
+
+        &-requestor_name {
+            margin: 0;
+        }
+    }
+}
