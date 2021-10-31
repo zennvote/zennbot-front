@@ -1,15 +1,26 @@
 .main-song_list {
     &-item {
-        padding: 8px;
-        background-color: #eee;
-        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        padding: 8px 12px;
+        border-left: 3px solid #d7e2eb;
 
         &-title {
             margin: 0;
+            font-size: 0.9rem;
         }
 
         &-requestor_name {
             margin: 0;
+            font-size: 0.75rem;
+        }
+
+        &:first-of-type {
+            border-color: #0078ff;
+        }
+
+        &:not(:last-of-type) {
+            margin-bottom: 10px;
         }
     }
 }
