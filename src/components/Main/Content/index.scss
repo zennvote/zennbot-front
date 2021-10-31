@@ -2,16 +2,19 @@
     &-wrapper {
         display: flex;
         height: calc(100vh - 60px);
+        box-sizing: border-box;
     }
 
     &-left {
         flex: 8;
+        box-sizing: border-box;
     }
 
     &-right {
         flex: 2;
         box-shadow: -3px 0px 3px 1px rgba(0, 0, 0, 0.1);
         background-color: #232323;
+        box-sizing: border-box;
     }
 }
 

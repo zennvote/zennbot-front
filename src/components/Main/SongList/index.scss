@@ -1,12 +1,22 @@
 .main-song_list {
     &-wrapper {
         padding: 20px;
+        height: 100%;
+        box-sizing: border-box;
     }
 
     &-header {
         display: flex;
         justify-content: space-between;
         color: white;
+        height: 50px;
         margin-bottom: 15px;
+        box-sizing: border-box;
+    }
+
+    &-content-wrapper {
+        max-height: calc(100% - 65px);
+        overflow-y: auto;
+        box-sizing: border-box;
     }
 }
