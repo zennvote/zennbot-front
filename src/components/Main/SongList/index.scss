@@ -20,3 +20,11 @@
         box-sizing: border-box;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .main-song_list {
+        &-content-wrapper {
+            max-height: calc(60vh - 65px);
+        }
+    }
+}
