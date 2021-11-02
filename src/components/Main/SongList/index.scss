@@ -24,6 +24,7 @@
 @media screen and (max-width: 768px) {
     .main-song_list {
         &-content-wrapper {
+            min-height: 10vh;
             max-height: calc(60vh - 65px);
         }
     }
