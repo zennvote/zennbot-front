@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import connectSocket from '../../../utils/connectSocket';
+import socketInstance from '../../../utils/socketInstance';
 import Song from '../../../types/Song';
 import SongItem from '../SongItem';
 import './index.scss';
@@ -8,7 +8,7 @@ const SongList: React.FC = () => {
     const [songList, setSongList] = useState<Song[]>([]);
 
     useEffect(() => {
-        const socket = connectSocket();
+        const socket = socketInstance;
 
         socket.emit('songs.update');
         socket.on('songs.updated', (payload: Song[]) => {
