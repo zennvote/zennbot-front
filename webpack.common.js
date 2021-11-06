@@ -1,5 +1,8 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
     entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -43,6 +46,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public/index.html'),
+        }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(process.env),
         }),
     ],
 };

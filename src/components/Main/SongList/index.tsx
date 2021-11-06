@@ -1,13 +1,21 @@
-import React from 'react';
-import SongType from '../../../types/Song';
+import React, { useState, useEffect } from 'react';
+import socketInstance from '../../../utils/socketInstance';
+import Song from '../../../types/Song';
 import SongItem from '../SongItem';
 import './index.scss';
 
-interface SongListProps {
-    songList: SongType[];
-}
+const SongList: React.FC = () => {
+    const [songList, setSongList] = useState<Song[]>([]);
 
-const SongList: React.FC<SongListProps> = ({ songList }) => {
+    useEffect(() => {
+        const socket = socketInstance;
+
+        socket.emit('songs.update');
+        socket.on('songs.updated', (payload: Song[]) => {
+            setSongList(payload);
+        });
+    }, []);
+
     return (
         <div className="main-song_list-wrapper">
             <div className="main-song_list-header">
