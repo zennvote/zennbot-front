@@ -19,6 +19,13 @@
         overflow-y: auto;
         box-sizing: border-box;
     }
+
+    &-next-btn {
+        background-color: inherit;
+        border: 0;
+        color: white;
+        cursor: pointer;
+    }
 }
 
 @media screen and (max-width: 768px) {

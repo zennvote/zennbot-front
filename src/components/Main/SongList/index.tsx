@@ -22,7 +22,12 @@ const SongList: React.FC = () => {
         <div className="main-song_list-wrapper">
             <div className="main-song_list-header">
                 <span>신청곡 목록</span>
-                <button onClick={handlePostNextSong}>다음 곡</button>
+                <button
+                    className="main-song_list-next-btn"
+                    onClick={handlePostNextSong}
+                >
+                    다음 곡 >>
+                </button>
             </div>
             <div className="main-song_list-content-wrapper">
                 {songList.map((song, idx) => (
