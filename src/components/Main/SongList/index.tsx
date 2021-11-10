@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import socketInstance from '../../../utils/socketInstance';
 import Song from '../../../types/Song';
 import SongItem from '../SongItem';
+import { usePostNextSong } from '../../../hooks/useApi.hooks';
 import './index.scss';
 
 const SongList: React.FC = () => {
     const [songList, setSongList] = useState<Song[]>([]);
+    const handlePostNextSong = usePostNextSong();
 
     useEffect(() => {
         const socket = socketInstance;
@@ -20,7 +22,12 @@ const SongList: React.FC = () => {
         <div className="main-song_list-wrapper">
             <div className="main-song_list-header">
                 <span>신청곡 목록</span>
-                <button>다음 곡</button>
+                <button
+                    className="main-song_list-next-btn"
+                    onClick={handlePostNextSong}
+                >
+                    다음 곡 >>
+                </button>
             </div>
             <div className="main-song_list-content-wrapper">
                 {songList.map((song, idx) => (
