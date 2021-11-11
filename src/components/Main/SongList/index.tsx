@@ -26,7 +26,7 @@ const SongList: React.FC = () => {
                     className="main-song_list-next-btn"
                     onClick={handlePostNextSong}
                 >
-                    다음 곡 >>
+                    다음 곡 &gt;&gt;
                 </button>
             </div>
             <div className="main-song_list-content-wrapper">
