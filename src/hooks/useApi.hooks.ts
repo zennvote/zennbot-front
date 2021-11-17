@@ -8,6 +8,12 @@ export const usePostNextSong = () => {
     }, []);
 };
 
+export const useGetFlagsHook = (): (() => Promise<AxiosResponse>) => {
+    return useCallback(() => {
+        return axios.get('http://zennbot.net/api/flags');
+    }, []);
+};
+
 export const useSetFreemodeHook = (): ((
     freemode: boolean
 ) => Promise<AxiosResponse>) => {
