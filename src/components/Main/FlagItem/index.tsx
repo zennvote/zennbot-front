@@ -20,7 +20,7 @@ const FlagItem: React.FC<FlagItemProps> = ({
                     type="checkbox"
                     className="main-content-settings-flag_item-checkbox"
                     checked={value}
-                    onClick={handleClickToggle}
+                    onChange={handleClickToggle}
                 />
                 <span className="main-content-settings-flag_item-title">
                     {title}
