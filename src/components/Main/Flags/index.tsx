@@ -1,15 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useSetFreemodeHook } from '../../../hooks/useApi.hooks';
+import {
+    useGetFlagsHook,
+    useSetFreemodeHook,
+} from '../../../hooks/useApi.hooks';
 import FlagItem from '../FlagItem';
+
+import FlagsType from '../../../types/Flags';
 
 import './index.scss';
 
 const Flags = () => {
+    const useGetFlags = useGetFlagsHook();
     const useSetFreemode = useSetFreemodeHook();
 
     const [freemode, setFreemode] = useState<boolean>(false);
 
     useEffect(() => {
+        useGetFlags().then(({ data }: { data: FlagsType }) => {
+            setFreemode(data.freemode ?? false);
+        });
+
         return () => undefined;
     }, []);
 
