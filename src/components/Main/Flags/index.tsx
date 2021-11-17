@@ -1,9 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
+import { useSetFreemodeHook } from '../../../hooks/useApi.hooks';
 import FlagItem from '../FlagItem';
 
 import './index.scss';
 
 const Flags = () => {
+    const useSetFreemode = useSetFreemodeHook();
+
     const [freemode, setFreemode] = useState<boolean>(false);
 
     useEffect(() => {
@@ -11,7 +14,10 @@ const Flags = () => {
     }, []);
 
     const handleToggleFreemode = useCallback(() => {
-        setFreemode(!freemode);
+        useSetFreemode(!freemode).then((_) => {
+            // TODO: api 실패시 처리를 추가해야함.
+            setFreemode(!freemode);
+        });
     }, [freemode]);
 
     return (
