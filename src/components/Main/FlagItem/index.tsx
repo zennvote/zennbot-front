@@ -15,16 +15,23 @@ const FlagItem: React.FC<FlagItemProps> = ({
 }) => {
     return (
         <div className="main-content-settings-flag_item">
-            <label>
+            <span className="main-content-settings-flag_item-title">
+                {title}
+            </span>
+            <label
+                className={`main-content-settings-flag_item-checkbox-label ${
+                    value ? 'checked' : ''
+                }`}
+            >
+                <div className="main-content-settings-flag_item-checkbox-label-background">
+                    <span className="main-content-settings-flag_item-checkbox-label-handle"></span>
+                </div>
                 <input
                     type="checkbox"
                     className="main-content-settings-flag_item-checkbox"
                     checked={value}
                     onChange={handleClickToggle}
                 />
-                <span className="main-content-settings-flag_item-title">
-                    {title}
-                </span>
             </label>
         </div>
     );
