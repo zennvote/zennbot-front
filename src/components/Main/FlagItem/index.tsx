@@ -1,4 +1,5 @@
 import React from 'react';
+import Switch from '../../common/Switch';
 
 import './index.scss';
 
@@ -18,21 +19,7 @@ const FlagItem: React.FC<FlagItemProps> = ({
             <span className="main-content-settings-flag_item-title">
                 {title}
             </span>
-            <label
-                className={`main-content-settings-flag_item-checkbox-label ${
-                    value ? 'checked' : ''
-                }`}
-            >
-                <div className="main-content-settings-flag_item-checkbox-label-background">
-                    <span className="main-content-settings-flag_item-checkbox-label-handle"></span>
-                </div>
-                <input
-                    type="checkbox"
-                    className="main-content-settings-flag_item-checkbox"
-                    checked={value}
-                    onChange={handleClickToggle}
-                />
-            </label>
+            <Switch value={value} handleClickToggle={handleClickToggle} />
         </div>
     );
 };
