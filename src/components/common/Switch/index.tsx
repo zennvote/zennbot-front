@@ -1,28 +1,34 @@
 import React from 'react';
-import './index.scss';
+import * as Styled from './style';
 
 interface SwitchProps {
     value: boolean;
     handleClickToggle: () => void;
-
-    // TODO: styled component 넣으면서, width, height 반영할 수 있도록 하자.
+    // width와 height가 입력받으면 그 사이즈를 이용하고,
+    // width와 height가 없으면 각각 30, 60px로 한다.
     width?: number;
     height?: number;
 }
 
-const Switch: React.FC<SwitchProps> = ({ value, handleClickToggle }) => {
+const Switch: React.FC<SwitchProps> = ({
+    value,
+    handleClickToggle,
+    width = 60,
+    height = 30,
+}) => {
     return (
-        <label className={`common-switch-label ${value ? 'checked' : ''}`}>
-            <div className="common-switch-label-background">
-                <span className="common-switch-label-handle"></span>
-            </div>
+        <Styled.Label isChecked={value} width={width} height={height}>
+            <Styled.Background>
+                {/* Handler의 width는 height-2이다. */}
+                <Styled.Handle width={height} />
+            </Styled.Background>
             <input
                 type="checkbox"
                 className="common-switch-input"
                 checked={value}
                 onChange={handleClickToggle}
             />
-        </label>
+        </Styled.Label>
     );
 };
 
