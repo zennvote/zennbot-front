@@ -13,6 +13,30 @@ export const Label = styled.label`
             width: ${props.width}px;
             height: ${props.height}px;
             border-radius: ${props.width}px;
+
+            &::before {
+                content: '✓';
+                position: absolute;
+                color: white;
+                top: 50%;
+                font-size: ${props.height / 2}px;
+                left: ${props.height / 2}px;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.25s;
+                opacity: 0;
+            }
+
+            &::after {
+                content: 'X';
+                position: absolute;
+                color: white;
+                top: 50%;
+                font-size: ${props.height / 2}px;
+                right: ${props.height / 2}px;
+                transform: translate(50%, -50%);
+                transition: opacity 0.25s;
+                opacity: 1;
+            }
         `}
     }
 
@@ -27,6 +51,14 @@ export const Label = styled.label`
                 // check되었을 때의, background
                 background-color: rgb(0, 136, 0);
                 justify-content: flex-end;
+
+                &::before {
+                    opacity: 1;
+                }
+
+                &::after {
+                    opacity: 0;
+                }
 
                 & > span {
                     // check되었을 때의, handler
